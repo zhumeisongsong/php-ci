@@ -1,9 +1,9 @@
 
-<script src="../../plugins/jQuery/jquery-3.1.1.min.js"></script>
-<script src="../../bootstrap/js/bootstrap.min.js"></script>
-<script src="../../plugins/slimScroll/jquery.slimscroll.min.js"></script>
-<script src="../../plugins/fastclick/fastclick.js"></script>
-<script src="../../dist/js/adminlte.min.js"></script>
-<script src="../../dist/js/demo.js"></script>
+<script src="./docroot/javascript/jquery-3.1.1.min.js"></script>
+<script src="./docroot/javascript/bootstrap.min.js"></script>
+<!--<script src="./docroot/javascript/jquery.slimscroll.min.js"></script>-->
+<!--<script src="./docroot/javascript/fastclick.js"></script>-->
+<script src="./docroot/javascript/adminlte.min.js"></script>
+<script src="./docroot/javascript/demo.js"></script>
 </body>
 </html>

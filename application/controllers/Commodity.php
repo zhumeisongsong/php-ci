@@ -14,7 +14,7 @@ class Commodity extends CI_Controller
         $this->load->helper('url');
         $this->load->view('templates/header', $data);
         $this->load->view('templates/nav', $data);
-        $this->load->view('templates/nav', $data);
+        $this->load->view('templates/aside', $data);
         $this->load->view('pages/' . $page, $data);
         $this->load->view('templates/footer', $data);
     }
