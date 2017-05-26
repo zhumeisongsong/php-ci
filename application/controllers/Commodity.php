@@ -10,7 +10,8 @@ class Commodity extends CI_Controller
             show_404();
         }
         $data['title'] = ucfirst($page);
-        
+
+        $this->load->helper('url');
         $this->load->view('templates/header', $data);
         $this->load->view('templates/nav', $data);
         $this->load->view('templates/nav', $data);

@@ -1,4 +1,4 @@
-<footer> 这里是foote的view</footer>
+
 <script src="../../plugins/jQuery/jquery-3.1.1.min.js"></script>
 <script src="../../bootstrap/js/bootstrap.min.js"></script>
 <script src="../../plugins/slimScroll/jquery.slimscroll.min.js"></script>
