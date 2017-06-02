@@ -4,36 +4,47 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Record extends MY_Controller
 {
-    public function index()
-    {
-        echo 'index';
-    }
-
-    public function total($page = 'list')
-    {
-        $data['title'] = '商品列表列表';
-        $data['num'] = '123456789';
-        $this->assign('data', $data);
+    //common_set: file_check url_helper
+    function common_set($page){
         if (!file_exists(APPPATH . 'views/templates/pages/' . $page . '.php')) {
             show_404();
         }
-//        $data['title'] = ucfirst($page);
+
+        $this->load->helper('url');
+    }
+
+    //each page view_template
+    function view_template ($page ,$data){
         $this->load->view('templates/include/header', $data);
         $this->load->view('templates/include/nav', $data);
         $this->load->view('templates/include/aside', $data);
         $this->load->view('templates/pages/' . $page, $data);
         $this->load->view('templates/include/footer', $data);
     }
-
-
-    public function edit()
+    public function total($page = 'list')
     {
-        echo 'hello edit';
+        $data['title'] = 'Record List';
+        $data['num'] = '123456789';
+        $this->assign('data', $data);
+
+        common_set($page);
+        $this->view_template(@$page,$data);
     }
 
-    public function update()
+
+    public function edit($page='edit_record')
     {
-        echo 'hello change';
+        if(TRUE){
+            $data['title'] = 'Record Add';
+        }else{
+            $data['title'] = 'Record Detail';
+        }
+
+
+        common_set($page);
+        echo 'index';
+
     }
 
 }
+
