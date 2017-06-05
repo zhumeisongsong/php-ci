@@ -35,20 +35,26 @@ class Record extends MY_Controller
         $config['base_url'] = site_url('record/total');
         $config['total_rows'] = $this->db->count_all_results('crawler_vinyl_raw_info');
         $config['per_page'] = 10;
-        $config['use_page_numbers']=TRUE;
+        $config['use_page_numbers'] = TRUE;
 
-        $this->pagination->initialize($config);//init
+        //init
+        $this->pagination->initialize($config);
 
-        $data['page_list'] = $this->pagination->create_links();
 
         //query data
-        $offset = $this->uri->segment(3);
+        $page_num = (int)$this->uri->segment(3);
+        $offset = $page_num == FALSE ? 0 : ($config['per_page'] * ($page_num - 1));
+
         $this->db->limit($config['per_page'], $offset);
         $data['records'] = $this->record_model->get_records();
 
+        //pagination links
+        $data['page_list'] = $this->pagination->create_links();
+
         $this->assign('data', $data);
 
-        $this->common_set($page);
+        //$this->common_set($page);
+        //output template
         $this->display(APPPATH . 'views/templates/layout.tpl');
     }
 
