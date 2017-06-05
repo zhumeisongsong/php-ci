@@ -1,4 +1,4 @@
-<!--template list-->
+<!--list-->
 <section class="content-wrapper">
   <div class="content">
     <div class="row">
@@ -31,17 +31,20 @@
                 <th>Status</th>
                 <th>Date</th>
               </tr>
+                {foreach $data.records as $record}
               <tr>
-                <td>219</td>
-                <td>name</td>
-                <td>artist</td>
-                <td><span class="label label-warning">1111</span></td>
-                <td>2017/11/12</td>
+                <td>{$record.id}</td>
+                <td>{$record.albumName}</td>
+                <td>{$record.artistName}</td>
+                <td><span class="label label-warning">有效</span></td>
+                <td>$record.createdAt</td>
               </tr>
+                {/foreach}
             </table>
           </div>
         </div>
       </div>
     </div>
   </div>
+    <div style="text-align: center">{$data.page_list}</div>
 </section>
