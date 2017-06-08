@@ -8,12 +8,13 @@ class Record extends MY_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('record_model');
+        $this->load->model('record_model', '', TRUE);
         $this->load->helper('url_helper');
-    }
+
+	}
 
     //common_set: file_check url_helper
-    function common_set($page)
+    public function common_set($page)
     {
         if (!file_exists(PAGE_PATH . $page . '.tpl')) {
             show_404();
@@ -23,45 +24,54 @@ class Record extends MY_Controller
     /**
      * public function
      */
-    public function total($page = 'list')
+    public function total()
     {
-        $data['title'] = 'Record List';
-        $data['page'] = $page;
+        $page = 'list';
 
-        //load pagination
+        //check page template is exist
+        $this->common_set($page);
+
+        //pagination
         $this->load->library('pagination');
-
-        //pagination config
         $config['base_url'] = site_url('record/total');
-        $config['total_rows'] = $this->db->count_all_results('crawler_vinyl_raw_info');
-        $config['per_page'] = 10;
-        $config['use_page_numbers'] = TRUE;
 
-        //init
+        $order = 'id asc';
+        $page_size = 10;
+
+        //page num get & reset page1
+        $current_page = (int)$this->uri->segment(3);
+        if (0 == $current_page) {
+            $current_page = 1;
+        }
+        $offset = ($current_page - 1) * $page_size;
+
+        $result = $this->record_model->get_records($offset, $page_size, $order);
+        $config['total_rows'] = $result['total'];//总条数
+
         $this->pagination->initialize($config);
-
-
-        //query data
-        $page_num = (int)$this->uri->segment(3);
-        $offset = $page_num == FALSE ? 0 : ($config['per_page'] * ($page_num - 1));
-
-        $this->db->limit($config['per_page'], $offset);
-        $data['records'] = $this->record_model->get_records();
 
         //pagination links
         $data['page_list'] = $this->pagination->create_links();
 
-        $this->assign('data', $data);
+        //construct data
+        $data['title'] = 'Record List';
+        $data['page'] = $page;
+        $data['records'] = $result['list'];
 
-        //$this->common_set($page);
-        //output template
+        //smarty
+        $this->assign('data', $data);
         $this->display(APPPATH . 'views/templates/layout.tpl');
     }
 
-    public function add($page = 'edit_record')
+    //detail render
+    public function detail()
     {
-        $data['title'] = 'Add Record';
+        $page = 'edit_record';
+        $data['title'] = 'Record Detail';
         $data['page'] = $page;
+
+		echo config_item('aside_list');
+
 
         $this->assign('data', $data);
         $this->common_set($page);
@@ -78,4 +88,3 @@ class Record extends MY_Controller
         $this->display(APPPATH . 'views/templates/layout.tpl');
     }
 }
-

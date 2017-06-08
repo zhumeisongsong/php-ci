@@ -1,49 +1,127 @@
 <section class="content-wrapper">
-    <div class="content">
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="box box-info">
-                    <div class="box-header with-border">
-                        <h3 class="box-title">Record add//Record detail</h3>
-                    </div>
+	<div class="content">
 
-                    <form class="form-horizontal">
-                        <div class="box-body">
-                            <div class="form-group">
-                                <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="box box-info">
 
-                                <div class="col-sm-10">
-                                    <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+					<div class="box-header with-border">
+						<h3 class="box-title">{{$data.title}}</h3>
+					</div>
+					<!--main form-->
+					<form class="form-horizontal">
+						<div class="box-body">
 
-                                <div class="col-sm-10">
-                                    <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-offset-2 col-sm-10">
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox"> Remember me
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /.box-body -->
-                        <div class="box-footer">
-                            <button type="submit" class="btn btn-default">Cancel</button>
-                            <button type="submit" class="btn btn-info pull-right">Sign in</button>
-                        </div>
-                        <!-- /.box-footer -->
-                    </form>
-                </div>
-            </div>
-        </div>
+							<!--name-->
+							<div class="form-group">
+								<label for="inputName" class="col-sm-2 control-label">Name</label>
+								<div class="col-sm-9">
+									<input type="text" class="form-control" id="inputName" placeholder=""
+										   value="wwwww">
+								</div>
+							</div>
 
-    </div>
+							<!--cover-->
+							<div class="form-group">
+								<label for="exampleInputFile" class="col-sm-2 control-label">File input</label>
+								<div class="col-sm-9">
+									<input type="file" id="exampleInputFile" class="form-control border-none">
+								</div>
+							</div>
+
+							<!--label-->
+							<div class="form-group">
+								<label for="inputLabel" class="col-sm-2
+                                control-label">Label</label>
+
+								<div class="col-sm-9">
+									<input type="number" class="form-control" id="inputLabel" placeholder=""
+										   value="444">
+								</div>
+							</div>
+
+							<!--release year-->
+							<div class="form-group">
+								<label for="inputYear" class="col-sm-2 control-label">Year</label>
+
+								<div class="col-sm-9 date">
+									<input type="text" class="form-control pull-right" id="datepicker" placeholder=""
+										   value="">
+								</div>
+							</div>
+
+							<!--release county-->
+							<div class="form-group">
+								<label for="inputCountry" class="col-sm-2 control-label">Country</label>
+
+								<div class="col-sm-9">
+									<input type="number" class="form-control" id="inputCountry" placeholder=""
+										   value="">
+								</div>
+							</div>
+
+
+							{*<!--artisname-->*}
+							{*<div class="form-group">*}
+							{*<label for="inputNumber" class="col-sm-2 control-label">Price</label>*}
+
+							{*<div class="col-sm-9">*}
+							{*<input type="number" class="form-control" id="inputNumber" placeholder="Price"*}
+							{*value="444">*}
+							{*</div>*}
+							{*</div>*}
+
+							{*<!--albumName-->*}
+							{*<div class="form-group">*}
+							{*<label for="inputNumber" class="col-sm-2 control-label">Price</label>*}
+
+							{*<div class="col-sm-9">*}
+							{*<input type="number" class="form-control" id="inputNumber" placeholder="Price"*}
+							{*value="444">*}
+							{*</div>*}
+							{*</div>*}
+
+							<!--format-->
+							<div class="form-group">
+								<label for="inputNumber" class="col-sm-2 control-label">Price</label>
+
+								<div class="col-sm-9">
+									<input type="number" class="form-control" id="inputNumber" placeholder="Price"
+										   value="444">
+								</div>
+							</div>
+
+							<!--genre-->
+							<div class="form-group">
+								<label for="inputNumber" class="col-sm-2 control-label">Price</label>
+
+								<div class="col-sm-9">
+									<input type="number" class="form-control" id="inputNumber" placeholder="Price"
+										   value="444">
+								</div>
+							</div>
+
+
+							<!--price-->
+							<div class="form-group">
+								<label for="inputNumber" class="col-sm-2 control-label">Price</label>
+
+								<div class="col-sm-9">
+									<input type="number" class="form-control" id="inputNumber" placeholder="Price"
+										   value="444">
+								</div>
+							</div>
+
+							<!--track-->
+
+
+						</div>
+					</form>
+
+				</div>
+			</div>
+		</div>
+
+	</div>
 
 </section>

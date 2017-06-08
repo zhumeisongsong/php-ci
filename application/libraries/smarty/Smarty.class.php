@@ -507,7 +507,7 @@ class Smarty extends Smarty_Internal_TemplateBase
      *
      * @var string
      */
-    public $debugging_ctrl = 'NONE';
+    public $debugging_ctrl = 'URL';
 
     /**
      * Name of debugging URL-param.
