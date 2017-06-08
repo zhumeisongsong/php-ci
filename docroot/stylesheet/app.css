@@ -1,0 +1,35 @@
+/**
+*common setting
+*/
+.color-grey {
+  background-color: #ff3b8e;
+  border: 1px solid transparent; }
+
+.color-pink {
+  background-color: #ff3b8e;
+  border: 1px solid transparent; }
+
+/**
+*template nav
+*/
+.nav-full {
+  display: block;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  line-height: 20px;
+  color: #fff; }
+
+.nav-btn {
+  border: none;
+  background-color: #ff3b8e; }
+  .nav-btn:hover {
+    color: #f6f6f6;
+    background-color: #f02b7f; }
+
+/**
+*template list
+*/
+.pagination-con {
+  text-align: center; }
+
+/*# sourceMappingURL=app.css.map */

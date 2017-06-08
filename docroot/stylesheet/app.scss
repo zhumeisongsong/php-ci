@@ -1,0 +1,46 @@
+$global-color: (
+  default:#ff3b8e,
+  dark-default-a:#f02b7f,
+  dark-default-b:#e91971,
+  a:#f6f6f6,
+  b:#d6d6d6,
+);
+/**
+*common setting
+*/
+.color-grey {
+  background-color: map_get($global-color, default);
+  border: 1px solid transparent;
+}
+
+.color-pink {
+  background-color: map_get($global-color, default);
+  border: 1px solid transparent
+}
+
+/**
+*template nav
+*/
+.nav-full {
+  display: block;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  line-height: 20px;
+  color: #fff;
+}
+
+.nav-btn {
+  border: none;
+  background-color: map_get($global-color, default);
+  &:hover {
+	color: map_get($global-color, a);
+	background-color: map_get($global-color, dark-default-a);
+  }
+}
+
+/**
+*template list
+*/
+.pagination-con {
+  text-align: center;
+}

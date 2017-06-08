@@ -11,5 +11,6 @@
 	<link rel="stylesheet" href="/revinyl/docroot/plugin/daterangepicker/daterangepicker.css">
 	<link rel="stylesheet" href="/revinyl/docroot/stylesheet/AdminLTE.min.css">
 	<link rel="stylesheet" href="/revinyl/docroot/stylesheet/_all-skins.min.css">
+	<link rel="stylesheet" href="/revinyl/docroot/stylesheet/app.css">
 </head>
-<body class="skin-blue">
+<body class="skin-pink">

@@ -2,11 +2,11 @@
 
 class Record_model extends CI_model
 {
-    public function __construct()
-    {
-        parent::__construct();
-        $this->load->database();
-    }
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->database();
+	}
 
 //    public function add()
 //    {
@@ -63,18 +63,21 @@ class Record_model extends CI_model
 //        return $query->result();
 //    }
 
-    public function get_records($offset, $num, $order = 'id desc')
-    {
-        $table_name = 'crawler_vinyl_raw_info';
+	public function get_records($offset, $num, $order)
+	{
+		$table_name = 'crawler_vinyl_raw_info';
+		$sql = "SELECT id,albumName,artistName,delFlg FROM $table_name WHERE id!=0 ORDER BY {$order} limit {$offset},{$num}";
 
-        $sql = "SELECT id,albumName,artistName FROM $table_name WHERE id!=0 ORDER BY {$order} limit {$offset},{$num}";
+		$query = $this->db->query($sql);
 
-        $query = $this->db->query($sql);
+		return array(
+			'total' => $this->db->count_all($table_name),
+			'list' => $query->result_array(),
+		);
+	}
 
-        return array(
-            'total' => $this->db->count_all($table_name),
-            'list' => $query->result_array(),
-        );
-    }
+//	public function get_record_detail($id){
+//
+//	}
 }
 

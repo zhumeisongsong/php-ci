@@ -1,29 +1,29 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-$config['aside_list'] =array
+$config['aside'] = array
 (
-	array("Volvo",100,96),
-	array("BMW",60,59),
-	array("Toyota",110,100)
+	array(
+		"controller" => "user",
+		"title" => "User",
+		"icon" => "user",
+		"dropdown_list" => array(),
+	),
+	array(
+		"controller" => "record",
+		"title" => "Record",
+		"icon" => "music",
+		"dropdown_list" => array(
+			array(
+				"function" => "total",
+				"title" => "List",
+			),
+			array(
+				"function" => "request",
+				"title" => "Request",
+			)
+
+		),
+	),
+
 );
-// array
-//(
-//	array(
-//		"title" => "User",
-//		"icon" => "person",
-////		"dropdown_list" => array(
-////
-////		),
-//
-//	),
-////	array(
-////		"title" => "Record",
-////		"icon" => "music",
-//////		"dropdown_list" => array(
-//////
-//////		),
-////
-////	),
-//
-//);

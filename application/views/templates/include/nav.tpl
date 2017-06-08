@@ -5,7 +5,7 @@
 		<span class="logo-lg"><b>Revinyl</b></span>
 	</a>
 
-	<!-- Header Navbar: style can be found in header.less -->
+	<!-- Header Navbar -->
 	<nav class="navbar navbar-static-top">
 		<!-- Sidebar toggle button-->
 		<a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
@@ -14,15 +14,12 @@
 
 		<div class="navbar-custom-menu">
 			<ul class="nav navbar-nav">
-				<li class="user user-menu">
-
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-						<span class="hidden-xs">Welcome Administrator </span>
-					</a>
+				<li class="user user-menu nav-full">
+					<span class="hidden-xs">Welcome Administrator </span>
 				</li>
 
 				<li class="user-footer">
-					<a href="#" class="btn btn-warning btn-flat">Sign out</a>
+					<button type="button" class="btn nav-btn nav-full btn-flat">Sign out</button>
 				</li>
 			</ul>
 		</div>
