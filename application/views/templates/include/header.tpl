@@ -8,7 +8,7 @@
 	<link rel="stylesheet" href="/revinyl/docroot/stylesheet/bootstrap.min.css">
 	<link rel="stylesheet" href="/revinyl/docroot/stylesheet/font-awesome.min.css">
 	<!-- daterange picker -->
-	<link rel="stylesheet" href="/revinyl/docroot/plugin/daterangepicker/daterangepicker.css">
+	<link rel="stylesheet" href="/revinyl/docroot/plugin/daterangepicker/datecss">
 	<link rel="stylesheet" href="/revinyl/docroot/stylesheet/AdminLTE.min.css">
 	<link rel="stylesheet" href="/revinyl/docroot/stylesheet/_all-skins.min.css">
 	<link rel="stylesheet" href="/revinyl/docroot/stylesheet/app.css">

@@ -66,7 +66,7 @@ class Record_model extends CI_model
 	public function get_records($offset, $num, $order)
 	{
 		$table_name = 'crawler_vinyl_raw_info';
-		$sql = "SELECT id,albumName,artistName,delFlg FROM $table_name WHERE id!=0 ORDER BY {$order} limit {$offset},{$num}";
+		$sql = "SELECT id,albumName,artistName,delFlg FROM $table_name WHERE delFlg=0 ORDER BY {$order} limit {$offset},{$num}";
 
 		$query = $this->db->query($sql);
 
@@ -76,8 +76,20 @@ class Record_model extends CI_model
 		);
 	}
 
-//	public function get_record_detail($id){
-//
-//	}
+	public function get_record_detail($id)
+	{
+		$main_table = 'crawler_vinyl_raw_info';
+		$main_sql = "SELECT * FROM $main_table WHERE id=$id";
+		$main_query = $this->db->query($main_sql);
+
+		$track_table = 'crawler_vinyl_track_list';
+		$track_sql = "SELECT * FROM $track_table WHERE vinylID=$id";
+		$track_query = $this->db->query($track_sql);
+
+		return array(
+			'detail' =>$main_query->result_array(),
+			'track' =>$track_query->result_array(),
+		);
+	}
 }
 

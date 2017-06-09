@@ -29,7 +29,24 @@
 /**
 *template list
 */
+.list-box-header {
+  padding: 20px 10px; }
+  .list-box-header .add-btn {
+    height: 25px;
+    margin-left: 10px;
+    margin-top: -5px;
+    padding: 0 12px;
+    border: none;
+    background-color: #ff3b8e; }
+    .list-box-header .add-btn:hover, .list-box-header .add-btn:active, .list-box-header .add-btn.hover {
+      background-color: #e91971; }
+  .list-box-header > .box-tools {
+    top: 16px; }
+
 .pagination-con {
   text-align: center; }
+  .pagination-con .current-page-num a {
+    font-weight: bold;
+    color: #333 !important; }
 
 /*# sourceMappingURL=app.css.map */

@@ -34,7 +34,6 @@ class Record extends MY_Controller
 		$this->load->library('pagination');
 		$config['base_url'] = site_url('record/total');
 
-
 		//page num get & reset page1
 		$current_page = (int)$this->uri->segment(3);
 		if (0 == $current_page) {
@@ -57,9 +56,8 @@ class Record extends MY_Controller
 		//construct data
 		$data['title'] = 'Record List';
 		$data['page'] = $page;
-		$data["aside"] = config_item('aside');
+		$data['aside'] = config_item('aside');
 		$data['records'] = $result['list'];
-
 
 		//smarty
 		$this->assign('data', $data);
@@ -70,9 +68,15 @@ class Record extends MY_Controller
 	public function detail()
 	{
 		$page = 'edit_record';
+		$id = (int)$this->uri->segment(3);
+
+		$result = $this->record_model->get_record_detail($id);
+
 		$data['title'] = 'Record Detail';
 		$data['page'] = $page;
-		$data["aside"] = config_item('aside');
+		$data['aside'] = config_item('aside');
+		$data['record'] = $result['detail'];
+		$data['record_track'] = $result['track'];
 
 		$this->assign('data', $data);
 		$this->common_set($page);
@@ -83,7 +87,7 @@ class Record extends MY_Controller
 	{
 		$data['title'] = 'Record Detail';
 		$data['page'] = $page;
-		$data["aside"] = config_item('aside');
+		$data['aside'] = config_item('aside');
 
 		$this->assign('data', $data);
 		$this->common_set($page);

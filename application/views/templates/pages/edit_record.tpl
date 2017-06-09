@@ -17,7 +17,7 @@
 								<label for="inputName" class="col-sm-2 control-label">Name</label>
 								<div class="col-sm-9">
 									<input type="text" class="form-control" id="inputName" placeholder=""
-										   value="Double / 3 Of Sence / Native Raw">
+										   value="{{$data.record[0].albumName}}">
 								</div>
 							</div>
 
@@ -25,9 +25,9 @@
 							<div class="form-group">
 								<label for="exampleInputFile" class="col-sm-2 control-label">Image</label>
 								<div class="col-sm-9">
-									<img src="https://img.discogs.com/dLO717G3hJJ__MZYXxldME50D7U=/300x300/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-3309594-1327601301.jpeg.jpg"
+									<img src="{{$data.record[0].coverUrl}}"
 										 width="150px">
-									{*<input type="file" id="exampleInputFile" class="form-control border-none" style="border: none" placeholder="Update">*}
+
 									<button class="btn" style="margin-left: 10px; margin-top: 117px;">update</button>
 								</div>
 							</div>
@@ -38,7 +38,7 @@
 
 								<div class="col-sm-9">
 									<input type="text" class="form-control" id="inputFormat" placeholder=""
-										   value="Dope On Plastic Mc's">
+										   value="{{$data.record[0].artistName}}">
 								</div>
 							</div>
 
@@ -49,7 +49,7 @@
 
 								<div class="col-sm-9">
 									<input type="text" class="form-control" id="inputLabel" placeholder=""
-										   value="Mad Science Records ‎– MS-002">
+										   value="{{$data.record[0].label}}">
 								</div>
 							</div>
 
@@ -59,7 +59,8 @@
 
 								<div class="col-sm-9 date">
 									<input type="text" class="form-control pull-right" id="datepicker" placeholder=""
-										   value="2011">
+										   value="{{$data.record[0].releaseYear}}">
+
 								</div>
 							</div>
 
@@ -69,28 +70,16 @@
 
 								<div class="col-sm-9">
 									<input type="text" class="form-control" id="inputCountry" placeholder=""
-										   value="Japan">
+										   value="{{$data.record[0].releaseCountry}}">
 								</div>
 							</div>
-
-
-							{*<!--artisname-->*}
-							{*<div class="form-group">*}
-							{*<label for="inputNumber" class="col-sm-2 control-label">Price</label>*}
-
-							{*<div class="col-sm-9">*}
-							{*<input type="number" class="form-control" id="inputNumber" placeholder="Price"*}
-							{*value="444">*}
-							{*</div>*}
-							{*</div>*}
 
 							<!--genre-->
 							<div class="form-group">
 								<label for="inputGerne" class="col-sm-2 control-label">Gerne</label>
 
 								<div class="col-sm-9">
-									<input type="text" class="form-control" id="inputGerne" placeholder=""
-										   value="Hip Hop ">
+									<input type="text" class="form-control" id="inputGerne" placeholder="" value="{{$data.record[0].genre}}">
 								</div>
 							</div>
 
@@ -100,7 +89,7 @@
 
 								<div class="col-sm-9">
 									<input type="text" class="form-control" id="inputFormat" placeholder=""
-										   value="Vinyl, 12  33 ⅓ RPM">
+										   value="{{$data.record[0].format}}">
 								</div>
 							</div>
 
@@ -109,30 +98,31 @@
 								<label for="inputPrice" class="col-sm-2 control-label">Market Price</label>
 
 								<div class="col-sm-9">
-									<input type="" class="form-control" id="inputPrice" placeholder="" value="2183">
+									<input type="number" class="form-control" id="inputPrice" placeholder="" value="{{$data.record[0].marketPrice}}">
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="inputPrice" class="col-sm-2 control-label">Lowest Price</label>
 
 								<div class="col-sm-9">
-									<input type="text" class="form-control" id="inputPrice" placeholder="" value="NULL">
+									<input type="text" class="form-control" id="inputPrice" placeholder="" value="{{$data.record[0].albumName}}">
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="inputPrice" class="col-sm-2 control-label">median Price</label>
+								<label for="inputPrice" class="col-sm-2 control-label">Median Price</label>
 
 								<div class="col-sm-9">
-									<input type="text" class="form-control" id="inputPrice" placeholder="" value="NULL">
+									<input type="text" class="form-control" id="inputPrice" placeholder="" value="{$data.record[0].medianPrice}">
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="inputPrice" class="col-sm-2 control-label">Highest Price</label>
 
 								<div class="col-sm-9">
-									<input type="text" class="form-control" id="inputPrice" placeholder="" value="NULL">
+									<input type="text" class="form-control" id="inputPrice" placeholder="" value="{$data.record[0].highestPrice}">
 								</div>
 							</div>
+
 							<!--track-->
 							<div class="form-group">
 								<label for="inputPrice" class="col-sm-2 control-label">Track</label>
@@ -141,21 +131,22 @@
 									<table class="table table-hover" style="border: 1px #ddd solid">
 										<tr>
 											<th>Index</th>
-											<th>track</th>
+											<th>Name</th>
 											<th>Duration</th>
 											<th> </th>
 										</tr>
-
+										{foreach $data.record_track as $track}
 										<tr class="list-item">
-											<td>1</td>
-											<td>Double</td>
-											<td></td>
-											<td><span class="fa fa-remove"</td>
+											<td>{$track@iteration}</td>
+											<td>{$track.name}</td>
+											<td>{$track.duration}</td>
+											<td><span class="fa fa-remove"></span></td>
 										</tr>
+										{/foreach}
 
 									</table>
 									<div style="width: 100%; text-align: right ;margin-top: -15px">
-										<button type="button" class="btn">＋</button>
+										<button type="button" class="btn">Add track</button>
 									</div>
 
 								</div>
