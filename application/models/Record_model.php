@@ -76,7 +76,7 @@ class Record_model extends CI_model
 		);
 	}
 
-	public function get_record_detail($id)
+	public function get_detail($id)
 	{
 		$main_table = 'crawler_vinyl_raw_info';
 		$main_sql = "SELECT * FROM $main_table WHERE id=$id";
@@ -87,9 +87,36 @@ class Record_model extends CI_model
 		$track_query = $this->db->query($track_sql);
 
 		return array(
-			'detail' =>$main_query->result_array(),
-			'track' =>$track_query->result_array(),
+			'detail' => $main_query->result_array(),
+			'track' => $track_query->result_array(),
 		);
+	}
+
+	public function add_detail()
+	{
+		$this->load->helper('url');
+
+		$table_name = 'crawler_vinyl_raw_info';
+
+		$data = array(
+			'albumName' => $this->input->post('albumName'),
+		);
+
+		return $this->db->insert($table_name, $data);
+	}
+
+	public function update_datail($id)
+	{
+		$this->load->helper('url');
+
+		$table_name = 'crawler_vinyl_raw_info';
+
+		$data = array(
+			'id' => $id,
+			'albumName' => $this->input->post('albumName'),
+		);
+
+		return $this->db->replace($table_name, $data);
 	}
 }
 

@@ -8,6 +8,13 @@
 .color-pink {
   background-color: #ff3b8e;
   border: 1px solid transparent; }
+  .color-pink:hover, .color-pink:active, .color-pink:focus, .color-pink.hover {
+    background-color: #e91971;
+    border: 1px solid transparent; }
+
+.btn-primary.active.focus, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary:active.focus, .btn-primary:active:focus, .btn-primary:active:hover, .open > .dropdown-toggle.btn-primary.focus, .open > .dropdown-toggle.btn-primary:focus, .open > .dropdown-toggle.btn-primary:hover {
+  background-color: #e91971;
+  border: 1px solid transparent; }
 
 /**
 *template nav

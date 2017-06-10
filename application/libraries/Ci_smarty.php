@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-require(APPPATH.'libraries/smarty/Smarty.class.php');
-class Ci_smarty extends Smarty {
+require(APPPATH.'libraries/smarty/SmartyBC.class.php');
+class Ci_smarty extends SmartyBC {
     protected $ci;
     public function __construct()
     {

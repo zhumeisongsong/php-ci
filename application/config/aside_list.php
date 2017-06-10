@@ -7,7 +7,12 @@ $config['aside'] = array
 		"controller" => "user",
 		"title" => "User",
 		"icon" => "user",
-		"dropdown_list" => array(),
+		"dropdown_list" => array(
+			array(
+				"function" => "total",
+				"title" => "List",
+			),
+		),
 	),
 	array(
 		"controller" => "record",

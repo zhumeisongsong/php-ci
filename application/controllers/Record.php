@@ -67,10 +67,13 @@ class Record extends MY_Controller
 	//detail render
 	public function detail()
 	{
+		$this->load->helper('form');
+		$this->load->library('form_validation');
+
 		$page = 'edit_record';
 		$id = (int)$this->uri->segment(3);
 
-		$result = $this->record_model->get_record_detail($id);
+		$result = $this->record_model->get_detail($id);
 
 		$data['title'] = 'Record Detail';
 		$data['page'] = $page;
@@ -83,14 +86,37 @@ class Record extends MY_Controller
 		$this->display(APPPATH . 'views/templates/layout.tpl');
 	}
 
-	public function edit($page = 'edit_record')
+	public function submit()
 	{
+		$this->load->helper('form');
+		$this->load->library('form_validation');
+
+		$this->form_validation->set_rules('albumName', 'albumName', 'required');
+
+		$page = 'edit_record';
+
 		$data['title'] = 'Record Detail';
 		$data['page'] = $page;
-		$data['aside'] = config_item('aside');
 
 		$this->assign('data', $data);
 		$this->common_set($page);
-		$this->display(APPPATH . 'views/templates/layout.tpl');
+
+		//submit result
+		if ($this->form_validation->run() === FALSE) {
+			$this->display(APPPATH . 'views/templates/layout.tpl');
+		} else {
+			$id = (int)$this->uri->segment(3);
+			echo $id;
+			if ($id) {
+				$this->record_model->update_detail($id);
+				echo 'success update';
+			}
+//			else {
+//				$this->record_model->add_detail();
+//				echo 'success add';
+//			}
+
+		}
+
 	}
 }

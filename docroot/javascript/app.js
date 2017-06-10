@@ -179,18 +179,12 @@ $(function () {
 	 */
 	Util.dispatcher('.', function () {
 		Page.all.init();
+		Page.record_list.init();
 	});
 
 	/**
 	 * each page
 	 */
-	if (url.match(Route.record_list) != null) {
-		Util.dispatcher(Route.record_list, function () {
-			Config.current_page = Route.record_list;
-			Page.record_list.init();
-		});
-	}
-
 	if (url.match(Route.record_detail) != null) {
 
 	}
