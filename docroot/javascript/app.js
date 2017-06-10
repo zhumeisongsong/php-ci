@@ -10,7 +10,6 @@ var Util = App.Util = {};
 var Config = App.Config = {};
 var Page = App.Page = {};
 var Route = App.Route = {
-	record_list: 'record/total',
 	record_detail: 'record/detail'
 };
 
@@ -186,7 +185,7 @@ $(function () {
 	 * each page
 	 */
 	if (url.match(Route.record_detail) != null) {
-
+		Page.record_deail.init();
 	}
 	Util.dispatcher(url);
 
@@ -211,13 +210,7 @@ Page.all = (function () {
  */
 Page.record_list = (function () {
 	var init = function () {
-		render();
 		bind();
-	};
-	var render = function () {
-		$('#datepicker').datepicker({
-			autoclose: true
-		});
 	};
 
 	var bind = function () {
@@ -235,3 +228,22 @@ Page.record_list = (function () {
 		init: init
 	}
 })();
+Page.record_deail = (function () {
+	var init = function () {
+		bind();
+
+	};
+	var bind = function () {
+		$('#datepicker').datetimepicker({
+			format:'yyyy',
+			autoclose: true,
+			startView: 4,
+			minView: 4
+		});
+	};
+	return {
+		init: init
+	}
+})();
+
+

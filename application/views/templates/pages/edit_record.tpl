@@ -77,6 +77,8 @@
 							<div class="col-sm-9">
 								<input type="text" class="form-control" id="inputCountry" placeholder=""
 									   value="{{$data.record[0].releaseCountry}}">
+
+								{include  file="../include/country_list.tpl"}
 							</div>
 						</div>
 
