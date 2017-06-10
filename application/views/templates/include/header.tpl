@@ -7,10 +7,12 @@
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 	<link rel="stylesheet" href="/revinyl/docroot/stylesheet/bootstrap.min.css">
 	<link rel="stylesheet" href="/revinyl/docroot/stylesheet/font-awesome.min.css">
-	<!-- daterange picker -->
+	<!-- date picker -->
 	<link rel="stylesheet" href="/revinyl/docroot/plugin/daterangepicker/datecss">
 	<link rel="stylesheet" href="/revinyl/docroot/stylesheet/AdminLTE.min.css">
 	<link rel="stylesheet" href="/revinyl/docroot/stylesheet/_all-skins.min.css">
 	<link rel="stylesheet" href="/revinyl/docroot/stylesheet/app.css">
 </head>
 <body class="skin-pink">
+<div class="wrapper">
+
