@@ -12,18 +12,18 @@
 					<!--main form-->
 					{php}
 						$attr = array('class'=>'form-horizontal','id'=>'record_detail_form');
-
 						echo validation_errors();
-						echo form_open('record/submit',$attr);
+						echo form_open('record/detail',$attr);
 					{/php}
 
 					<div class="box-body">
+
 						<!--name-->
 						<div class="form-group">
 							<label for="albumName" class="col-sm-2 control-label">Name</label>
 							<div class="col-sm-9">
 								<input type="text" class="form-control" id="albumName" name="albumName" placeholder=""
-									   value="{$data.record[0].albumName}">
+									   value="{$data.record[0].albumName|default:'&nbsp;'}">
 							</div>
 						</div>
 
@@ -31,42 +31,42 @@
 						<div class="form-group">
 							<label for="exampleInputFile" class="col-sm-2 control-label">Image</label>
 							<div class="col-sm-9">
-								<img src="{$data.record[0].coverUrl}"
+								<img src="{$data.record[0].coverUrl|default:'/revinyl/docroot/image/default-release.png'}"
 									 width="150px">
 
-								<button class="btn" style="margin-left: 10px; margin-top: 117px;">update</button>
+								<button type="button" class="btn" style="margin-left: 10px; margin-top: 117px;">update
+								</button>
 							</div>
 						</div>
 
 						<!--artistNme-->
 						<div class="form-group">
-							<label for="inputFormat" class="col-sm-2 control-label">Artist</label>
+							<label for="artistName" class="col-sm-2 control-label">Artist</label>
 
 							<div class="col-sm-9">
-								<input type="text" class="form-control" id="inputFormat" placeholder=""
-									   value="{$data.record[0].artistName}">
+								<input type="text" class="form-control" id="artistName" name="artistName" placeholder=""
+									   value="{$data.record[0].artistName|default:'&nbsp;'}">
 							</div>
 						</div>
 
 						<!--label-->
 						<div class="form-group">
-							<label for="inputLabel" class="col-sm-2
+							<label for="label" class="col-sm-2
 						control-label">Label</label>
 
 							<div class="col-sm-9">
-								<input type="text" class="form-control" id="inputLabel" placeholder=""
-									   value="{$data.record[0].label}">
+								<input type="text" class="form-control" id="label" name="label" placeholder=""
+									   value="{$data.record[0].label|default:'&nbsp;'}">
 							</div>
 						</div>
 
 						<!--release year-->
 						<div class="form-group">
-							<label for="inputYear" class="col-sm-2 control-label">Year</label>
+							<label for="releaseYear" class="col-sm-2 control-label">Year</label>
 
 							<div class="col-sm-9 date">
-								<input type="text" class="form-control pull-right" id="datepicker" placeholder=""
-									   value="{$data.record[0].releaseYear}">
-
+								<input type="text" class="form-control pull-right" id="datepicker" name="releaseYear" placeholder=""
+									   value="{$data.record[0].releaseYear|default:'&nbsp;'}">
 							</div>
 						</div>
 
@@ -76,8 +76,9 @@
 
 							<div class="col-sm-9">
 
-								<select class="select_country" id="select_country" style="width: 100%; height: 34px; border-radius: 0"
-										data-country="{$data.record[0].releaseCountry}">
+								<select class="select_country" id="select_country"
+										style="width: 100%; height: 34px; border-radius: 0"
+										data-country="{$data.record[0].releaseCountry|default:'&nbsp;'}">
 									{include file="../include/country_list.tpl"}
 								</select>
 							</div>
@@ -89,7 +90,7 @@
 
 							<div class="col-sm-9">
 								<input type="text" class="form-control" id="inputGerne" placeholder=""
-									   value="{$data.record[0].genre}">
+									   value="{$data.record[0].genre|default:'&nbsp;'}">
 							</div>
 						</div>
 
@@ -99,7 +100,7 @@
 
 							<div class="col-sm-9">
 								<input type="text" class="form-control" id="inputFormat" placeholder=""
-									   value="{$data.record[0].format}">
+									   value="{$data.record[0].format|default:'&nbsp;'}">
 							</div>
 						</div>
 
@@ -109,7 +110,7 @@
 
 							<div class="col-sm-9">
 								<input type="number" class="form-control" id="inputPrice" placeholder=""
-									   value="{$data.record[0].marketPrice}">
+									   value="{$data.record[0].marketPrice|default:'&nbsp;'}">
 							</div>
 						</div>
 						<div class="form-group">
@@ -117,7 +118,7 @@
 
 							<div class="col-sm-9">
 								<input type="number" class="form-control" id="inputPrice" placeholder=""
-									   value="{$data.record[0].lowestPrice}">
+									   value="{$data.record[0].lowestPrice|default:'&nbsp;'}">
 							</div>
 						</div>
 						<div class="form-group">
@@ -125,7 +126,7 @@
 
 							<div class="col-sm-9">
 								<input type="number" class="form-control" id="inputPrice" placeholder=""
-									   value="{$data.record[0].medianPrice}">
+									   value="{$data.record[0].medianPrice|default:'&nbsp;'}">
 							</div>
 						</div>
 						<div class="form-group">
@@ -133,7 +134,7 @@
 
 							<div class="col-sm-9">
 								<input type="number" class="form-control" id="inputPrice" placeholder=""
-									   value="{$data.record[0].highestPrice}">
+									   value="{$data.record[0].highestPrice|default:'&nbsp;'}">
 							</div>
 						</div>
 
@@ -170,7 +171,7 @@
 					</div>
 
 					<div class="box-footer" style="text-align: center">
-						<button type="submit" class="btn" id="detail_cancel"
+						<button type="button" class="btn" id="detail_cancel"
 								style="margin-right: 20px">Cancel
 						</button>
 						<button type="submit" class="btn btn-primary color-pink" id="detail_submit">Submit</button>

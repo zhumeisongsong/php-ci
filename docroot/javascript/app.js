@@ -171,7 +171,7 @@ Util.string = (function () {
  * aside_list click functions
  */
 Util.aside_list =(function () {
-	
+
 })();
 
 /**
@@ -252,12 +252,14 @@ Page.record_deail = (function () {
 		var release_country=$('.select_country').data('country');
 		var $example = $("#select_country").select2();
 		$example.val(release_country).trigger("change");
-
 	};
 
 	var bind = function () {
 		date_picker();
 		input_select();
+		$('#detail_cancel').click(function () {
+			confirm('Still cancel?');
+		})
 	};
 	return {
 		init: init

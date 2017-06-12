@@ -8,23 +8,6 @@ class Record_model extends CI_model
 		$this->load->database();
 	}
 
-//    public function add()
-//    {
-//        $data = array(
-//            'name' => 'aaa',
-//            'image' => 'url',//push image add
-//            'label' => 'index',
-//            'year' => 'xxx/xx/xx',//select
-//            'country' => 'dddd',//select
-//            'gerne' => '??',//what?//select
-//            'format' => 'mp3',
-//            'catalog' => '49494994',
-//            'price' => '444',
-//            'track' => 'url'//push music?add
-//        );
-//        return $this->db->insert("record", $data);
-//    }
-//
 //    public function update($id)
 //    {
 //        $data = array(
@@ -48,20 +31,6 @@ class Record_model extends CI_model
 //        $this->db->where('id', $id);
 //        return $this->db->delete('record');
 //    }
-//
-//    public function fetch_all()
-//    {
-//        $query = $this->db->get('User');
-//        return $query->result_array();
-//    }
-//
-//    public function get_item($id)
-//    {
-//        $this->db->where('id', $id);
-//        $this->db->select('*');
-//        $query = $this->db->get('record');
-//        return $query->result();
-//    }
 
 	public function get_records($offset, $num, $order)
 	{
@@ -78,21 +47,21 @@ class Record_model extends CI_model
 
 	public function get_detail($id)
 	{
-		$main_table = 'crawler_vinyl_raw_info';
-		$main_sql = "SELECT * FROM $main_table WHERE id=$id";
-		$main_query = $this->db->query($main_sql);
-
-		$track_table = 'crawler_vinyl_track_list';
-		$track_sql = "SELECT * FROM $track_table WHERE vinylID=$id";
-		$track_query = $this->db->query($track_sql);
-
-		return array(
-			'detail' => $main_query->result_array(),
-			'track' => $track_query->result_array(),
-		);
+		$table = 'crawler_vinyl_raw_info';
+		$sql = "SELECT * FROM $table WHERE id=$id";
+		$query = $this->db->query($sql);
+		return $query->result_array();
 	}
 
-	public function add_detail()
+	public function get_track($id)
+	{
+		$table = 'crawler_vinyl_track_list';
+		$sql = "SELECT * FROM $table WHERE vinylID=$id";
+		$query = $this->db->query($sql);
+		return $query->result_array();
+	}
+
+	public function edit_detail($id)
 	{
 		$this->load->helper('url');
 
@@ -100,23 +69,32 @@ class Record_model extends CI_model
 
 		$data = array(
 			'albumName' => $this->input->post('albumName'),
-		);
-
-		return $this->db->insert($table_name, $data);
-	}
-
-	public function update_datail($id)
-	{
-		$this->load->helper('url');
-
-		$table_name = 'crawler_vinyl_raw_info';
-
-		$data = array(
-			'id' => $id,
+			'artistName' => $this->input->post('artistName'),
+			'albumName' => $this->input->post('albumName'),
+			'albumName' => $this->input->post('albumName'),
+			'albumName' => $this->input->post('albumName'),
+			'albumName' => $this->input->post('albumName'),
+			'albumName' => $this->input->post('albumName'),
+			'albumName' => $this->input->post('albumName'),
+			'albumName' => $this->input->post('albumName'),
 			'albumName' => $this->input->post('albumName'),
 		);
 
+		$this->db->where('id', $id);
 		return $this->db->replace($table_name, $data);
 	}
+
+//	public function update_datail($id)
+//	{
+//		$this->load->helper('url');
+//
+//		$table_name = 'crawler_vinyl_raw_info';
+//
+//		$data = array(
+//			'albumName' => $this->input->post('albumName'),
+//		);
+
+
+//	}
 }
 

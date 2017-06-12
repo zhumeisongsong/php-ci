@@ -8,7 +8,7 @@ $config['aside'] = array
 		"icon" => "user",
 		"dropdown_list" => array(
 			array(
-				"function" => "user/total",
+				"path" => "user/total",
 				"title" => "List",
 			),
 		),
