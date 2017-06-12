@@ -9,26 +9,17 @@ class Record extends MY_Controller
 	{
 		parent::__construct();
 		$this->load->model('record_model', '', TRUE);
-		$this->load->helper('url_helper');
-	}
-
-	//common_set: file_check url_helper
-	public function common_set($page)
-	{
-		if (!file_exists(PAGE_PATH . $page . '.tpl')) {
-			show_404();
-		}
+		$this->load->helper(
+			array('url', 'file_exist')
+		);
 	}
 
 	/**
-	 * public function
+	 *total
 	 */
 	public function total()
 	{
 		$page = 'list';
-
-		//check page template is exist
-		$this->common_set($page);
 
 		//pagination
 		$this->load->library('pagination');
@@ -40,7 +31,7 @@ class Record extends MY_Controller
 			$current_page = 1;
 		}
 
-		// model variables
+		//model variables
 		$page_size = 10;
 		$offset = ($current_page - 1) * $page_size;
 		$order = 'id desc';
@@ -56,15 +47,19 @@ class Record extends MY_Controller
 		//construct data
 		$data['title'] = 'Record List';
 		$data['page'] = $page;
-		$data['aside'] = config_item('aside');
 		$data['records'] = $result['list'];
+
+		$data['base_url'] = base_url();//get_base_url
+		$data['aside'] =config_item('aside');//get_base_url
 
 		//smarty
 		$this->assign('data', $data);
 		$this->display(APPPATH . 'views/templates/layout.tpl');
 	}
 
-	//detail render
+	/**
+	 *detail
+	 */
 	public function detail()
 	{
 		$this->load->helper('form');
@@ -75,17 +70,20 @@ class Record extends MY_Controller
 
 		$result = $this->record_model->get_detail($id);
 
+		//structure data
 		$data['title'] = 'Record Detail';
 		$data['page'] = $page;
-		$data['aside'] = config_item('aside');
 		$data['record'] = $result['detail'];
 		$data['record_track'] = $result['track'];
+		$this->aside_data();
 
 		$this->assign('data', $data);
-		$this->common_set($page);
 		$this->display(APPPATH . 'views/templates/layout.tpl');
 	}
 
+	/**
+	 *submit
+	 */
 	public function submit()
 	{
 		$this->load->helper('form');

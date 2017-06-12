@@ -12,6 +12,8 @@
 	<link rel="stylesheet" href="/revinyl/docroot/stylesheet/_all-skins.min.css">
 	<!-- date picker -->
 	<link rel="stylesheet" href="/revinyl/docroot/plugin/datepicker/bootstrap-datetimepicker.min.css">
+	<!-- select2 -->
+	<link rel="stylesheet" href="/revinyl/docroot/plugin/select2/select2.min.css">
 	<!--custom css-->
 	<link rel="stylesheet" href="/revinyl/docroot/stylesheet/app.css">
 </head>

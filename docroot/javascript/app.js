@@ -86,7 +86,7 @@ Util.url = (function () {
 		 * @param {String} path
 		 */
 		setQuery: function (query) {
-			var path = "?";
+			var path = '?';
 			_.each(query, function (value, key, index) {
 				path += key + '=' + value + '&';
 			});
@@ -168,6 +168,13 @@ Util.string = (function () {
 })();
 
 /**
+ * aside_list click functions
+ */
+Util.aside_list =(function () {
+	
+})();
+
+/**
  * on domcontent loaded
  */
 $(function () {
@@ -215,7 +222,7 @@ Page.record_list = (function () {
 
 	var bind = function () {
 		$('#add_detial_btn').click(function () {
-			window.location.href = Host.path_join("record/detail");
+			window.location.href = Host.path_join('record/detail');
 		});
 
 		$('.list-item').click(function () {
@@ -233,13 +240,24 @@ Page.record_deail = (function () {
 		bind();
 
 	};
-	var bind = function () {
+	var date_picker = function () {
 		$('#datepicker').datetimepicker({
-			format:'yyyy',
+			format: 'yyyy',
 			autoclose: true,
 			startView: 4,
 			minView: 4
 		});
+	};
+	var input_select = function () {
+		var release_country=$('.select_country').data('country');
+		var $example = $("#select_country").select2();
+		$example.val(release_country).trigger("change");
+
+	};
+
+	var bind = function () {
+		date_picker();
+		input_select();
 	};
 	return {
 		init: init

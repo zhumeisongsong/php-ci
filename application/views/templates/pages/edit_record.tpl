@@ -6,7 +6,7 @@
 				<div class="box box-info">
 
 					<div class="box-header with-border">
-						<h3 class="box-title">{{$data.title}}</h3>
+						<h3 class="box-title">{$data.title}</h3>
 					</div>
 
 					<!--main form-->
@@ -23,7 +23,7 @@
 							<label for="albumName" class="col-sm-2 control-label">Name</label>
 							<div class="col-sm-9">
 								<input type="text" class="form-control" id="albumName" name="albumName" placeholder=""
-									   value="{{$data.record[0].albumName}}">
+									   value="{$data.record[0].albumName}">
 							</div>
 						</div>
 
@@ -31,7 +31,7 @@
 						<div class="form-group">
 							<label for="exampleInputFile" class="col-sm-2 control-label">Image</label>
 							<div class="col-sm-9">
-								<img src="{{$data.record[0].coverUrl}}"
+								<img src="{$data.record[0].coverUrl}"
 									 width="150px">
 
 								<button class="btn" style="margin-left: 10px; margin-top: 117px;">update</button>
@@ -44,7 +44,7 @@
 
 							<div class="col-sm-9">
 								<input type="text" class="form-control" id="inputFormat" placeholder=""
-									   value="{{$data.record[0].artistName}}">
+									   value="{$data.record[0].artistName}">
 							</div>
 						</div>
 
@@ -55,7 +55,7 @@
 
 							<div class="col-sm-9">
 								<input type="text" class="form-control" id="inputLabel" placeholder=""
-									   value="{{$data.record[0].label}}">
+									   value="{$data.record[0].label}">
 							</div>
 						</div>
 
@@ -65,7 +65,7 @@
 
 							<div class="col-sm-9 date">
 								<input type="text" class="form-control pull-right" id="datepicker" placeholder=""
-									   value="{{$data.record[0].releaseYear}}">
+									   value="{$data.record[0].releaseYear}">
 
 							</div>
 						</div>
@@ -75,10 +75,11 @@
 							<label for="inputCountry" class="col-sm-2 control-label">Country</label>
 
 							<div class="col-sm-9">
-								<input type="text" class="form-control" id="inputCountry" placeholder=""
-									   value="{{$data.record[0].releaseCountry}}">
 
-								{include  file="../include/country_list.tpl"}
+								<select class="select_country" id="select_country" style="width: 100%; height: 34px; border-radius: 0"
+										data-country="{$data.record[0].releaseCountry}">
+									{include file="../include/country_list.tpl"}
+								</select>
 							</div>
 						</div>
 
@@ -88,7 +89,7 @@
 
 							<div class="col-sm-9">
 								<input type="text" class="form-control" id="inputGerne" placeholder=""
-									   value="{{$data.record[0].genre}}">
+									   value="{$data.record[0].genre}">
 							</div>
 						</div>
 
@@ -98,7 +99,7 @@
 
 							<div class="col-sm-9">
 								<input type="text" class="form-control" id="inputFormat" placeholder=""
-									   value="{{$data.record[0].format}}">
+									   value="{$data.record[0].format}">
 							</div>
 						</div>
 
@@ -108,22 +109,22 @@
 
 							<div class="col-sm-9">
 								<input type="number" class="form-control" id="inputPrice" placeholder=""
-									   value="{{$data.record[0].marketPrice}}">
+									   value="{$data.record[0].marketPrice}">
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="inputPrice" class="col-sm-2 control-label">Lowest Price</label>
 
 							<div class="col-sm-9">
-								<input type="text" class="form-control" id="inputPrice" placeholder=""
-									   value="{{$data.record[0].lowestPrice}}">
+								<input type="number" class="form-control" id="inputPrice" placeholder=""
+									   value="{$data.record[0].lowestPrice}">
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="inputPrice" class="col-sm-2 control-label">Median Price</label>
 
 							<div class="col-sm-9">
-								<input type="text" class="form-control" id="inputPrice" placeholder=""
+								<input type="number" class="form-control" id="inputPrice" placeholder=""
 									   value="{$data.record[0].medianPrice}">
 							</div>
 						</div>
@@ -131,7 +132,7 @@
 							<label for="inputPrice" class="col-sm-2 control-label">Highest Price</label>
 
 							<div class="col-sm-9">
-								<input type="text" class="form-control" id="inputPrice" placeholder=""
+								<input type="number" class="form-control" id="inputPrice" placeholder=""
 									   value="{$data.record[0].highestPrice}">
 							</div>
 						</div>
