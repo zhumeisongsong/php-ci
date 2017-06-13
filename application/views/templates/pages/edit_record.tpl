@@ -26,16 +26,24 @@
 									   value="{$data.record[0].albumName|default:'&nbsp;'}">
 							</div>
 						</div>
+						{*<input type="hidden" name="editForm[recordId]" value="{reco}"*}
 
 						<!--cover-->
 						<div class="form-group">
 							<label for="exampleInputFile" class="col-sm-2 control-label">Image</label>
 							<div class="col-sm-9">
-								<img src="{$data.record[0].coverUrl|default:'/revinyl/docroot/image/default-release.png'}"
-									 width="150px">
+								{*<img src="{$data.record[0].coverUrl|default:'/revinyl/docroot/image/default-release.png'}"*}
+									 {*width="150px">*}
+								{php}
+									echo $error;
+									echo form_open_multipart('record/upload');
+								{/php}
 
-								<button type="button" class="btn" style="margin-left: 10px; margin-top: 117px;">update
-								</button>
+
+								<input type="file" name="imageUrl" id="imageUrl" size="20" />
+								<input type="submit" value="upload" />
+								{*<button type="button" class="btn" style="margin-left: 10px; margin-top: 117px;">update*}
+								{*</button>*}
 							</div>
 						</div>
 
@@ -65,7 +73,8 @@
 							<label for="releaseYear" class="col-sm-2 control-label">Year</label>
 
 							<div class="col-sm-9 date">
-								<input type="text" class="form-control pull-right" id="datepicker" name="releaseYear" placeholder=""
+								<input type="text" class="form-control pull-right" id="datepicker" name="releaseYear"
+									   placeholder=""
 									   value="{$data.record[0].releaseYear|default:'&nbsp;'}">
 							</div>
 						</div>

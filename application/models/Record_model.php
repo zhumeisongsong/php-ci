@@ -70,32 +70,19 @@ class Record_model extends CI_model
 		$data = array(
 			'albumName' => $this->input->post('albumName'),
 			'artistName' => $this->input->post('artistName'),
+			'label' => $this->input->post('label'),
+			'format' => $this->input->post('format'),
+			'genre' => $this->input->post('genre'),
+			'releaseYear' => $this->input->post('relaseYear'),
+			'releaseCountry' => $this->input->post('releaseCountry'),
 			'marketPrice' => $this->input->post('marketPrice'),
-			'lowestPrice' => $this->input->post('albumName'),
-			'medianPrice' => $this->input->post('albumName'),
-			'heightPrice' => $this->input->post('albumName'),
-			'format' => $this->input->post('albumName'),
-			'genre' => $this->input->post('albumName'),
-			'releaseYear' => $this->input->post('albumName'),
-			'releaseCountry' => $this->input->post('albumName'),
-			'label' => $this->input->post('albumName'),
+			'lowestPrice' => $this->input->post('lowestPrice'),
+			'medianPrice' => $this->input->post('medianPrice'),
+			'highestPrice' => $this->input->post('highestPrice'),
 		);
 
 		$this->db->where('id', $id);
 		return $this->db->replace($table_name, $data);
 	}
-
-//	public function update_datail($id)
-//	{
-//		$this->load->helper('url');
-//
-//		$table_name = 'crawler_vinyl_raw_info';
-//
-//		$data = array(
-//			'albumName' => $this->input->post('albumName'),
-//		);
-
-
-//	}
 }
 
