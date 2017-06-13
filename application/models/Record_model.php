@@ -70,14 +70,15 @@ class Record_model extends CI_model
 		$data = array(
 			'albumName' => $this->input->post('albumName'),
 			'artistName' => $this->input->post('artistName'),
-			'albumName' => $this->input->post('albumName'),
-			'albumName' => $this->input->post('albumName'),
-			'albumName' => $this->input->post('albumName'),
-			'albumName' => $this->input->post('albumName'),
-			'albumName' => $this->input->post('albumName'),
-			'albumName' => $this->input->post('albumName'),
-			'albumName' => $this->input->post('albumName'),
-			'albumName' => $this->input->post('albumName'),
+			'marketPrice' => $this->input->post('marketPrice'),
+			'lowestPrice' => $this->input->post('albumName'),
+			'medianPrice' => $this->input->post('albumName'),
+			'heightPrice' => $this->input->post('albumName'),
+			'format' => $this->input->post('albumName'),
+			'genre' => $this->input->post('albumName'),
+			'releaseYear' => $this->input->post('albumName'),
+			'releaseCountry' => $this->input->post('albumName'),
+			'label' => $this->input->post('albumName'),
 		);
 
 		$this->db->where('id', $id);

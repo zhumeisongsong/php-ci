@@ -170,7 +170,7 @@ Util.string = (function () {
 /**
  * aside_list click functions
  */
-Util.aside_list =(function () {
+Util.aside_list = (function () {
 
 })();
 
@@ -235,11 +235,16 @@ Page.record_list = (function () {
 		init: init
 	}
 })();
+
+/**
+ *Page record detail
+ */
 Page.record_deail = (function () {
+
 	var init = function () {
 		bind();
-
 	};
+
 	var date_picker = function () {
 		$('#datepicker').datetimepicker({
 			format: 'yyyy',
@@ -248,19 +253,31 @@ Page.record_deail = (function () {
 			minView: 4
 		});
 	};
+
 	var input_select = function () {
-		var release_country=$('.select_country').data('country');
+		var release_country = $('.select_country').data('country');
 		var $example = $("#select_country").select2();
 		$example.val(release_country).trigger("change");
+	};
+
+	var show_confirm = function () {
+		var modal = confirm('Still cancel?');
+		if (modal == true) {
+			alert('Has been cancelled');
+			window.location.reload();
+		} else {
+			alert('out');
+		}
 	};
 
 	var bind = function () {
 		date_picker();
 		input_select();
 		$('#detail_cancel').click(function () {
-			confirm('Still cancel?');
+			show_confirm();
 		})
 	};
+
 	return {
 		init: init
 	}
